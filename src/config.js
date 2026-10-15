@@ -1,0 +1,88 @@
+const { Regex } = require('@companion-module/base')
+
+const { MODELS } = require('./models.js')
+
+module.exports = {
+	getConfigFields() {
+		return [
+			{
+				type: 'static-text',
+				id: 'info',
+				width: 12,
+				label: 'Information',
+				value:
+					'This module controls Zanus devices using the XC protocol. You can find supported models in the dropdown below.',
+			},
+			{
+				type: 'textinput',
+				id: 'host',
+				label: 'Device IP',
+				width: 4,
+				default: '',
+				regex: Regex.IP,
+			},
+			{
+				type: 'textinput',
+				id: 'httpPort',
+				label: 'HTTP Port (Default: 80)',
+				width: 3,
+				default: 80,
+				regex: Regex.PORT,
+			},
+			{
+				type: 'dropdown',
+				id: 'model',
+				label: 'Select Your Device Model',
+				width: 6,
+				default: MODELS[0].id,
+				choices: MODELS,
+				minChoicesForSearch: 5,
+			},
+			{
+				type: 'static-text',
+				id: 'intervalInfo',
+				width: 12,
+				label: 'Update Interval',
+				value:
+					'Please enter the amount of time in milliseconds to request new information from the camera. Set to 0 to disable.',
+			},
+			{
+				type: 'textinput',
+				id: 'interval',
+				label: 'Update Interval',
+				width: 3,
+				default: 5000,
+			},
+			{
+				type: 'checkbox',
+				id: 'continuePolling',
+				label: 'Continue Polling even in error state',
+				width: 3,
+				default: false,
+				isVisible: (configValues) => configValues.interval > 0,
+			},
+			{
+				type: 'static-text',
+				id: 'dummy2',
+				width: 12,
+				label: ' ',
+				value: ' ',
+			},
+			{
+				type: 'static-text',
+				id: 'Info',
+				width: 12,
+				label: 'Other Settings',
+				value:
+					'These setting can be left on the default values and should give you a consistent setup, but they are there for you to use if need be.',
+			},
+			{
+				type: 'checkbox',
+				id: 'verbose',
+				width: 1,
+				label: 'Verbose Mode',
+				default: true,
+			},
+		]
+	},
+}

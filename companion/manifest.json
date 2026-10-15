@@ -1,28 +1,26 @@
 {
-	"$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
-	"type": "connection",
-	"id": "your-module-name",
-	"name": "your-module-name",
-	"shortname": "module-shortname",
-	"description": "A short one line description of your module",
-	"version": "0.0.0",
+	"id": "zanus-pt",
+	"name": "zanus-pt",
+	"shortname": "zanus-pt",
+	"description": "Companion module for Zanus Production Robotics pan-tilt heads using the XC Protocol",
+	"version": "1.0.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-your-module-name.git",
-	"bugs": "https://github.com/bitfocus/companion-module-your-module-name/issues",
+	"repository": "git+https://github.com/bitfocus/companion-module-zanus-pt.git",
+	"bugs": "https://github.com/bitfocus/companion-module-zanus-pt/issues",
 	"maintainers": [
 		{
-			"name": "Your name",
-			"email": "Your email"
+			"name": "Nikola Todorovic",
+			"email": "ntodorovic@zanustechnology.com"
 		}
 	],
+	"legacyIds": [],
 	"runtime": {
-		"type": "node22",
+		"type": "node18",
 		"api": "nodejs-ipc",
 		"apiVersion": "0.0.0",
-		"entrypoint": "../src/main.js"
+		"entrypoint": "../src/index.js"
 	},
-	"legacyIds": [],
-	"manufacturer": "Your company",
-	"products": ["Your product"],
-	"keywords": []
+	"manufacturer": "Zanus",
+	"products": ["Pauli", "Pauli B", "Paulinho", "Paulinho B", "Paulinho C"],
+	"keywords": ["pan-tilt", "robotic head", "zanus"]
 }
